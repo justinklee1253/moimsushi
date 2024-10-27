@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mo-Im Sushi - Our Story</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Keep your existing navbar -->
+    <nav class="navbar">
+        <a class="logo" href="/"><img src="static/logo.png"/></a>
+        <div class="nav-links">
+            <a href="#">Our Story</a>
+            <a href="menu.html" class="menu-link">View Menu</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="story-hero">
+        <div class="story-hero-content">
+            <h1>Our Story</h1>
+            <p>A Journey of Tradition & Innovation</p>
+        </div>
+    </div>
+
+    <!-- Story Content -->
+    <div class="story-container">
+        <!-- Story Section 1 -->
+        <div class="story-section">
+            <div class="story-image">
+                <img src="static/chef.jpg" alt="Chef preparing sushi">
+            </div>
+            <div class="story-text fade-in">
+                <h2>The Beginning</h2>
+                <p>Our journey began in the heart of Japan, where our master chef spent decades perfecting the art of sushi making. Bringing these time-honored traditions to New York, we opened our doors with a vision to create an exceptional dining experience.</p>
+            </div>
+        </div>
+
+        <!-- Story Section 2 -->
+        <div class="story-section reverse">
+            <div class="story-image">
+                <img src="static/restaurant-interior.jpg" alt="Restaurant interior">
+            </div>
+            <div class="story-text fade-in">
+                <h2>Our Philosophy</h2>
+                <p>At MOIM Sushi, we believe in the perfect harmony between traditional techniques and modern creativity. Every dish is crafted with precision, passion, and the finest ingredients to ensure an unforgettable dining experience.</p>
+            </div>
+        </div>
+
+        <!-- Story Section 3 -->
+        <div class="story-section">
+            <div class="story-image">
+                <img src="static/sushi-platter.jpg" alt="Signature dishes">
+            </div>
+            <div class="story-text fade-in">
+                <h2>Our Commitment</h2>
+                <p>Quality is at the heart of everything we do. From selecting the freshest ingredients to presenting each dish with artistic precision, we are committed to exceeding your expectations with every visit.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Intersection Observer for fade-in animation
+        const observerOptions = {
+            threshold: 0.2
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            document.querySelector('.story-hero').style.backgroundPositionY = `${scroll * 0.5}px`;
+        });
+    </script>
+</body>
+</html>

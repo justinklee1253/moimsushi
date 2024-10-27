@@ -307,3 +307,190 @@ body {
         padding: 0.6rem 1.2rem;
     }
 }
+
+
+.story-hero {
+    height: 80vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('static/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.story-hero-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.story-hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.story-hero-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 0.5s forwards;
+}
+
+/* Story Container */
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    background-color: black;
+    color: white;
+}
+
+/* Story Sections */
+.story-section {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    margin-bottom: 6rem;
+}
+
+.story-section.reverse {
+    flex-direction: row-reverse;
+}
+
+.story-image {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.story-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.story-image:hover img {
+    transform: scale(1.05);
+}
+
+.story-text {
+    flex: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.story-text.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.story-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.story-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: white;
+}
+
+.story-text p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Story Page Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Additional Story Page Responsive Styles */
+@media (max-width: 968px) {
+    .story-section {
+        flex-direction: column;
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .story-section.reverse {
+        flex-direction: column;
+    }
+
+    .story-hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .story-hero-content p {
+        font-size: 1.2rem;
+    }
+
+    .story-text h2 {
+        font-size: 2rem;
+    }
+
+    .story-text p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-container {
+        padding: 2rem 1rem;
+    }
+
+    .story-image img {
+        height: 300px;
+    }
+
+    .story-text h2 {
+        text-align: center;
+    }
+
+    .story-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .story-text p {
+        text-align: center;
+    }
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* This ensures the navbar stays above other content */
+    background-color: #000; /* Or whatever background color you're using */
+    padding: 1rem; /* Adjust padding as needed */
+}
